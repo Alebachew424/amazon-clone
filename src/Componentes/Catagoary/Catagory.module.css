@@ -1,0 +1,51 @@
+.catagoary {
+  height: 350px;
+  width: 350px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 0 0 auto;        /* prevent shrinking when in flex row */
+  scroll-snap-align: start; /* for carousel snapping */
+}
+
+.catagoary img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 250px;
+  padding: 10px;
+}
+
+.catagoary h2,
+.catagoary p {
+  padding: 5px;
+  margin-left: 15px;
+}
+
+.catagoary p {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(9,132,209);
+}
+
+/* NEW: parent container styles */
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+}
+
+/* Added: Shop Now text styling */
