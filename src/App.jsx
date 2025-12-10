@@ -41,16 +41,18 @@ import Header from "./Componentes/Header/Header";
 import Carousel from "./Componentes/Carousel/Carousel";
 import Catagoary from "./Componentes/Catagoary/Catagory";
 import Product from "./Componentes/Product/Product";
+import Routing from "./Router";
 // import Header from "./Components/Header/Header";
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
+      {/* <Header />
       <Carousel />  
       <Catagoary />
-      <Product />
+      <Product /> */}
       {/* Other pages/components will go here */}
+      <Routing />
     </div>
   );
 };
