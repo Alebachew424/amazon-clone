@@ -1,11 +1,14 @@
 import React from 'react'
+import LayOut from '../../Componentes/LayOut/LayOut'
 //import classes from './Signup.module.css'
 
 function Signup() {
   return (
-    <div>
+    <LayOut>
+      <div>
       Signup
     </div>
+    </LayOut>
   )
 }
 

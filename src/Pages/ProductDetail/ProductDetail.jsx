@@ -1,11 +1,86 @@
-import React from 'react'
-//import classes from './ProductDetail.module.css';
+// // import React, { useEffect, useState } from "react";
+// // import LayOut from "../../Componentes/LayOut/LayOut";
+// // import { useParams } from "react-router-dom";
+// // import axios from "axios";
+// // import { productURL } from "../../API/endPoint";
+// // import ProductCard from "../../Componentes/Product/ProductCard";
+
+// // function ProductDetail() {
+// //   const { productId } = useParams();
+// //   const [product, setProduct] = useState(null);
+
+// //   useEffect(() => {
+// //     axios
+// //       .get(`${productURL}/products/${productId}`)
+// //       .then((res) => {
+// //         setProduct(res.data);
+// //       })
+// //       .catch((err) => console.log(err));
+// //   }, [productId]);
+
+// //   return (
+// //     <LayOut>
+// //       <ProductCard product={product} />
+// //     </LayOut>
+// //   );
+// // }
+
+// // export default ProductDetail;
+
+
+// import React, { useEffect, useState } from "react";
+// import LayOut from "../../Componentes/LayOut/LayOut";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+// import { productURL } from "../../API/endPoint";
+// import ProductCard from "../../Componentes/Product/ProductCard";
+
+// function ProductDetail() {
+//   const { productId } = useParams();
+//   const [product, setProduct] = useState(null);
+
+//   useEffect(() => {
+//     axios
+//       .get(`${productURL}/products/${productId}`)
+//       .then((res) => {
+//         setProduct(res.data);
+//       })
+//       .catch((err) => console.log(err));
+//   }, [productId]); // ✅ FIX 1
+
+//   return (
+//     <LayOut>
+//       {product && <ProductCard product={product} />} {/* ✅ FIX 2 */}
+//     </LayOut>
+//   );
+// }
+
+// export default ProductDetail;
+
+
+import React, { useEffect, useState } from "react";
+import LayOut from "../../Componentes/LayOut/LayOut";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { productURL } from "../../API/endPoint";
+import ProductCard from "../../Componentes/Product/ProductCard";
+
 function ProductDetail() {
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`${productURL}/products/${productId}`)
+      .then((res) => setProduct(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div>
-      ProductDetail
-    </div>
-  )
+    <LayOut>
+      {product && <ProductCard products={product} />}
+    </LayOut>
+  );
 }
 
-export default ProductDetail
+export default ProductDetail;

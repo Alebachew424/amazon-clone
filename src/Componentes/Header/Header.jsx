@@ -88,33 +88,119 @@
 
 
 
+// import React from "react";
+// import classes from "./Header.module.css";
+// import { SlLocationPin } from "react-icons/sl";
+// import { BsSearch } from "react-icons/bs";
+// import { BiCart } from "react-icons/bi";
+// import LowerHeader from "./LowerHeader";
+// import { Link } from "react-router-dom";
+
+// const Header = () => {
+//   return (
+//     <>
+//       {/* 🔹 Top Header */}
+//       <section className={classes.header_container}>
+//         {/* Logo */}
+//         <div className={classes.logo_container}>
+//           <a to="/">
+//             <img
+//               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+//               alt="amazon logo"
+//             />
+//           </a>
+//         </div>
+
+//         {/* Delivery */}
+//         <div className={classes.delivery}>
+//           <span>
+//             <SlLocationPin />
+//           </span>
+//           <div>
+//             <p>Deliver to</p>
+//             <span>Ethiopia</span>
+//           </div>
+//         </div>
+
+//         {/* Search */}
+//         <div className={classes.search}>
+//           <select>
+//             <option value="">All</option>
+//           </select>
+
+//           <input type="text" placeholder="Search products" />
+
+//           <BsSearch size={25} />
+//         </div>
+
+//         {/* Language */}
+//         <div className={classes.order_container}>
+//           <a className={classes.language}>
+//             <img
+//               src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
+//               alt="US flag"
+//             />
+//           </a>
+//           <select>
+//             <option value="">EN</option>
+//           </select>
+        
+
+//         {/* Sign In */}
+//         <a to="/signup" className={classes.link_box}>
+//           <p>Hello, Sign In</p>
+//           <span>Account & Lists</span>
+//         </a>
+
+//         {/* Orders */}
+//         <a to="/orders" className={classes.link_box}>
+//           <p>Returns</p>
+//           <span>& Orders</span>
+//         </a>
+
+//         {/* Cart */}
+//         <a to="/cart" className={classes.cart}>
+//           <BiCart size={35} />
+//           <span>0</span>
+//         </a>
+//         </div>
+//       </section>
+
+//       {/* 🔹 LOWER HEADER OUTSIDE */}
+//       <LowerHeader />
+//     </>
+//   );
+// };
+
+// export default Header;
+
+
 import React from "react";
 import classes from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
-      {/* 🔹 Top Header */}
       <section className={classes.header_container}>
+
         {/* Logo */}
         <div className={classes.logo_container}>
-          <a href="#">
+          <Link to="/">
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon logo"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Delivery */}
         <div className={classes.delivery}>
-          <span>
-            <SlLocationPin />
-          </span>
+          <span><SlLocationPin /></span>
           <div>
             <p>Deliver to</p>
             <span>Ethiopia</span>
@@ -128,7 +214,6 @@ const Header = () => {
           </select>
 
           <input type="text" placeholder="Search products" />
-
           <BsSearch size={25} />
         </div>
 
@@ -143,29 +228,28 @@ const Header = () => {
           <select>
             <option value="">EN</option>
           </select>
-        
 
-        {/* Sign In */}
-        <a href="/signin" className={classes.link_box}>
-          <p>Hello, Sign In</p>
-          <span>Account & Lists</span>
-        </a>
+          {/* Sign In */}
+          <Link to="/signup" className={classes.link_box}>
+            <p>Hello, Sign In</p>
+            <span>Account & Lists</span>
+          </Link>
 
-        {/* Orders */}
-        <a href="/orders" className={classes.link_box}>
-          <p>Returns</p>
-          <span>& Orders</span>
-        </a>
+          {/* Orders */}
+          <Link to="/orders" className={classes.link_box}>
+            <p>Returns</p>
+            <span>& Orders</span>
+          </Link>
 
-        {/* Cart */}
-        <a href="/cart" className={classes.cart}>
-          <BiCart size={35} />
-          <span>0</span>
-        </a>
+          {/* Cart */}
+          <Link to="/cart" className={classes.cart}>
+            <BiCart size={35} />
+            <span>0</span>
+          </Link>
         </div>
       </section>
 
-      {/* 🔹 LOWER HEADER OUTSIDE */}
+      {/* LOWER HEADER */}
       <LowerHeader />
     </>
   );
