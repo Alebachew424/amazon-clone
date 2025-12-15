@@ -153,23 +153,96 @@
 // export default Results;
 
 
+// import React, { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+// import LayOut from "../../Componentes/LayOut/LayOut";
+// import { productURL } from "../../API/endPoint";
+
+// function Results() {
+//   const { categoryname } = useParams();
+//   const decodedCategory = decodeURIComponent(categoryname);  // ✅ Decode the category name
+
+//   const [products, setProducts] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(false);
+
+//   useEffect(() => {
+//     setLoading(true);
+//     setError(false);
+
+//     axios
+//       .get(`${productURL}/products/category/${decodedCategory}`)
+//       .then((res) => {
+//         setProducts(res.data);
+//         setLoading(false);
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         setError(true);
+//         setLoading(false);
+//       });
+//   }, [decodedCategory]);
+
+//   return (
+//     <LayOut>
+//       <section style={{ padding: "20px" }}>
+//         <h2>Category: {decodedCategory}</h2>
+
+//         {loading && <p>Loading products...</p>}
+//         {error && <p>Failed to load products.</p>}
+
+//         {!loading && products.length === 0 && !error && (
+//           <p>No products found for this category.</p>
+//         )}
+
+//         <div
+//           style={{
+//             display: "grid",
+//             gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+//             gap: "20px",
+//             marginTop: "20px",
+//           }}
+//         >
+//           {products.map((item) => (
+//             <div key={item.id} style={{ border: "1px solid #ddd", padding: "10px", borderRadius: "6px" }}>
+//               <img
+//                 src={item.image}
+//                 alt={item.title}
+//                 style={{ width: "100%", height: "200px", objectFit: "contain" }}
+//               />
+//               <h4>{item.title}</h4>
+//               <p>${item.price}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </section>
+//     </LayOut>
+//   );
+// }
+
+// export default Results;
+
+
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LayOut from "../../Componentes/LayOut/LayOut";
 import { productURL } from "../../API/endPoint";
+import Loader from "../../Componentes/Loader/Loader"; // ✅ added
 
 function Results() {
   const { categoryname } = useParams();
-  const decodedCategory = decodeURIComponent(categoryname);  // ✅ Decode the category name
+  const decodedCategory = decodeURIComponent(categoryname);
 
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    setError(false);
+    // setLoading(true);
+    // setError(false);
 
     axios
       .get(`${productURL}/products/category/${decodedCategory}`)
@@ -189,33 +262,47 @@ function Results() {
       <section style={{ padding: "20px" }}>
         <h2>Category: {decodedCategory}</h2>
 
-        {loading && <p>Loading products...</p>}
+        {loading && <Loader />} {/* ✅ loading added */}
+
         {error && <p>Failed to load products.</p>}
 
         {!loading && products.length === 0 && !error && (
           <p>No products found for this category.</p>
         )}
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-            gap: "20px",
-            marginTop: "20px",
-          }}
-        >
-          {products.map((item) => (
-            <div key={item.id} style={{ border: "1px solid #ddd", padding: "10px", borderRadius: "6px" }}>
-              <img
-                src={item.image}
-                alt={item.title}
-                style={{ width: "100%", height: "200px", objectFit: "contain" }}
-              />
-              <h4>{item.title}</h4>
-              <p>${item.price}</p>
-            </div>
-          ))}
-        </div>
+        {!loading && (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+              gap: "20px",
+              marginTop: "20px",
+            }}
+          >
+            {products.map((item) => (
+              <div
+                key={item.id}
+                style={{
+                  border: "1px solid #ddd",
+                  padding: "10px",
+                  borderRadius: "6px",
+                }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "contain",
+                  }}
+                />
+                <h4>{item.title}</h4>
+                <p>${item.price}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </section>
     </LayOut>
   );

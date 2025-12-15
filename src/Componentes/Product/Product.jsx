@@ -65,33 +65,44 @@
 
 // export default Product;
 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 import classes from './Product.module.css';
+import Loader from '../Loader/Loader';
 
 function Product() {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false); // ✅ REQUIRED
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
+    // setIsLoading(true); // ✅ NOW VALID
+
+    axios
+      .get('https://fakestoreapi.com/products')
       .then((res) => {
         setProducts(res.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        setIsLoading(false);
       });
   }, []);
 
   return (
-    <div className={classes.product_container}>
-      <h1>Products</h1>
-      {/* remove <ul>, just render cards directly */}
-      {products?.map((item) => (
-        <ProductCard products={item} key={item.id} />
-      ))}
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className={classes.product_container}>
+          <h1>Products</h1>
+          {products.map((item) => (
+            <ProductCard products={item} key={item.id} />
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 

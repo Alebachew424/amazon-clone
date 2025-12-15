@@ -64,20 +64,28 @@ import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import classes from "./Product.module.css";
 import { Link } from "react-router-dom";
+import { TbMapPinX } from "react-icons/tb";
 
-function ProductCard({ products }) {
+function ProductCard({ products,flex,renderDesc }) {
   if (!products) return null;
 
-  const { id, title, image, price, rating } = products;
+  const { id, title, image, price, rating,description } = products;
 
   return (
-    <div className={classes.card_container}>
+    // <div className={classes.card_container} ${flex ? classs.product_flexed:''}>
+    <div className={`${classes.card_container} ${flex ? classes.product_flexed : ''}`}>
+
       <Link to={`/products/${id}`}>
         <img src={image} alt={title} />
       </Link>
 
       <div>
         <h3>{title}</h3>
+
+      {
+          renderDesc && <div style={{ maxWidth: "750px" }}
+> {description} </div>
+      }
 
         <div className={classes.rating}>
           <Rating value={rating?.rate || 0} precision={0.1} readOnly />
