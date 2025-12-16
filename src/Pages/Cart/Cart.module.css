@@ -66,6 +66,58 @@
   align-items: center;
 }
 
+/* Product container */
+.cart_product {
+  display: flex;
+  gap: 20px; /* slightly increased space */
+  align-items: center; /* ensure items are centered vertically */
+  margin-bottom: 15px; /* Space between products */
+}
+
+/* Button container */
+.btn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* slightly increased gap */
+}
+
+/* Individual button style */
+.btn {
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ccc; /* Border for visual distinction */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.btn:hover {
+  background-color: var(--primary-color); /* Button color change on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Hover effect specifically for button */
+.btn:hover svg {
+  fill: #fff; /* Change SVG color on hover for contrast */
+}
+
+/* Small adjustments for mobile responsiveness */
+@media (max-width: 768px) {
+  .cart_product {
+    flex-direction: column;
+    gap: 15px; /* Increase gap for smaller screens */
+  }
+
+  .btn_container {
+    flex-direction: row; /* Button container in row for smaller screens */
+    gap: 10px;
+  }
+}
+
+
 /* RESPONSIVE */
 @media screen and (max-width: 968px) {
   .container {
