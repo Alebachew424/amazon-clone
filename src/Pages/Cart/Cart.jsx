@@ -143,7 +143,7 @@ function Cart() {
   const [{ basket }] = useContext(DataContext);
 
   const total = basket.reduce(
-    (amount, item) => amount + item.price,
+    (amount, item) => amount + item.price * item.amount ,
     0
   );
 

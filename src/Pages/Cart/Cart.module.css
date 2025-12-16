@@ -9,6 +9,9 @@
   gap: 20px;
   justify-content: space-between;
 }
+.container div :not(.subtotal){
+    height: auto !important;
+}
 
 .container img {
   width: 100px !important;
