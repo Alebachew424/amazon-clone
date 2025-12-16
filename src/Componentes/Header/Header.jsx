@@ -276,6 +276,7 @@ import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 
+
 const Header = () => {
   const [{ basket }] = useContext(DataContext); // ✅ fixed
   const totalItem=basket?.reduce((amount,item)=>{
