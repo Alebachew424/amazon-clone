@@ -73,10 +73,10 @@ import Loader from '../Loader/Loader';
 
 function Product() {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false); // ✅ REQUIRED
+  const [isLoading, setIsLoading] = useState(false); //  REQUIRED
 
   useEffect(() => {
-    // setIsLoading(true); // ✅ NOW VALID
+    // setIsLoading(true); //  NOW VALID
 
     axios
       .get('https://fakestoreapi.com/products')
