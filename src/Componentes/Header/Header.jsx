@@ -175,20 +175,113 @@
 // export default Header;
 
 
-import React from "react";
+// import React from "react";
+// import classes from "./Header.module.css";
+// import { SlLocationPin } from "react-icons/sl";
+// import { BsSearch } from "react-icons/bs";
+// import { BiCart } from "react-icons/bi";
+// import LowerHeader from "./LowerHeader";
+// import { Link } from "react-router-dom";
+// import { DataContext } from "../DataProvider/DataProvider";
+
+// const Header = () => {
+
+
+
+//   const [{basket},dispatch]=useContext(DataContext)
+
+
+
+//   return (
+//     <>
+//       <section className={classes.header_container}>
+
+//         {/* Logo */}
+//         <div className={classes.logo_container}>
+//           <Link to="/">
+//             <img
+//               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+//               alt="amazon logo"
+//             />
+//           </Link>
+//         </div>
+
+//         {/* Delivery */}
+//         <div className={classes.delivery}>
+//           <span><SlLocationPin /></span>
+//           <div>
+//             <p>Deliver to</p>
+//             <span>Ethiopia</span>
+//           </div>
+//         </div>
+
+//         {/* Search */}
+//         <div className={classes.search}>
+//           <select>
+//             <option value="">All</option>
+//           </select>
+
+//           <input type="text" placeholder="Search products" />
+//           <BsSearch size={25} />
+//         </div>
+
+//         {/* Language */}
+//         <div className={classes.order_container}>
+//           <a className={classes.language}>
+//             <img
+//               src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
+//               alt="US flag"
+//             />
+//           </a>
+//           <select>
+//             <option value="">EN</option>
+//           </select>
+
+//           {/* Sign In */}
+//           <Link to="/signup" className={classes.link_box}>
+//             <p>Hello, Sign In</p>
+//             <span>Account & Lists</span>
+//           </Link>
+
+//           {/* Orders */}
+//           <Link to="/orders" className={classes.link_box}>
+//             <p>Returns</p>
+//             <span>& Orders</span>
+//           </Link>
+
+//           {/* Cart */}
+//           <Link to="/cart" className={classes.cart}>
+//             <BiCart size={35} />
+//             <span>{basket.length}</span>
+//           </Link>
+//         </div>
+//       </section>
+
+//       {/* LOWER HEADER */}
+//       <LowerHeader />
+//     </>
+//   );
+// };
+
+// export default Header;
+
+
+
+import React, { useContext } from "react";
 import classes from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvider";
 
 const Header = () => {
-  return (
-    <>
-      <section className={classes.header_container}>
+  const [{ basket }] = useContext(DataContext); // ✅ fixed
 
-        {/* Logo */}
+  return (
+        <section className={classes.fixed}>  
+      <section className={classes.header_container}>
         <div className={classes.logo_container}>
           <Link to="/">
             <img
@@ -198,7 +291,6 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Delivery */}
         <div className={classes.delivery}>
           <span><SlLocationPin /></span>
           <div>
@@ -207,51 +299,25 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Search */}
         <div className={classes.search}>
           <select>
             <option value="">All</option>
           </select>
-
           <input type="text" placeholder="Search products" />
           <BsSearch size={25} />
         </div>
 
-        {/* Language */}
         <div className={classes.order_container}>
-          <a className={classes.language}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
-              alt="US flag"
-            />
-          </a>
-          <select>
-            <option value="">EN</option>
-          </select>
-
-          {/* Sign In */}
-          <Link to="/signup" className={classes.link_box}>
-            <p>Hello, Sign In</p>
-            <span>Account & Lists</span>
-          </Link>
-
-          {/* Orders */}
-          <Link to="/orders" className={classes.link_box}>
-            <p>Returns</p>
-            <span>& Orders</span>
-          </Link>
-
-          {/* Cart */}
           <Link to="/cart" className={classes.cart}>
             <BiCart size={35} />
-            <span>0</span>
+            <span>{basket.length}</span>
           </Link>
         </div>
-      </section>
+     </section>
 
-      {/* LOWER HEADER */}
+
       <LowerHeader />
-    </>
+    </section>
   );
 };
 
