@@ -1,0 +1,76 @@
+.cart {
+  margin-top: 120px; /* fixed header offset */
+  padding: 20px;
+}
+
+/* MAIN LAYOUT */
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.container img {
+  width: 100px !important;
+}
+
+/* LEFT SIDE (PRODUCT LIST) */
+.cart_container {
+  flex: 3;
+  padding: 20px;
+  background: #fff;
+}
+
+.cart_container h2,
+.cart_container h3 {
+  padding: 10px 0;
+}
+
+/* RIGHT SIDE (SUBTOTAL) */
+.subtotal {
+  flex: 1;
+  padding: 20px;
+  min-width: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(13, 193, 193, 0.3);
+  background-color: rgb(241, 241, 241);
+  border-radius: 5px;
+}
+
+.subtotal a {
+  text-align: center;
+  width: 100%;
+  border: none;
+  background: var(--primary-color);
+  border-radius: 5px;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.subtotal a:hover {
+  background: var(--primary-shade);
+}
+
+.subtotal > div,
+.subtotal span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 968px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .subtotal {
+    width: 100%;
+    min-width: unset;
+  }
+}

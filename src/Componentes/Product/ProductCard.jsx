@@ -166,7 +166,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 
-function ProductCard({ products, flex, renderDesc }) {
+function ProductCard({ products, flex, renderDesc,renderAdd }) {
   if (!products) return null;
 
   const { id, title, image, price, rating, description } = products;
@@ -198,10 +198,14 @@ function ProductCard({ products, flex, renderDesc }) {
         </div>
 
         <CurrencyFormat amount={price} />
-
-        <button className={classes.button} onClick={addToCart}>
+{
+  renderAdd && <button className={classes.button} onClick={addToCart}>
           Add to cart
         </button>
+}
+        {/* <button className={classes.button} onClick={addToCart}>
+          Add to cart
+        </button> */}
       </div>
     </div>
   );

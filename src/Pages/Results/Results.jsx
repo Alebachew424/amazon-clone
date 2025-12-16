@@ -287,6 +287,7 @@ function Results() {
                   padding: "10px",
                   borderRadius: "6px",
                 }}
+                renderAdd={true}
               >
                 <img
                   src={item.image}

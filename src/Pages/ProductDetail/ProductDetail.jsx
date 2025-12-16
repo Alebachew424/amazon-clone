@@ -123,7 +123,7 @@ function ProductDetail() {
 
  <LayOut>
   {isLoading && <Loader />}
-  {product && <ProductCard products={product} flex={true} renderDesc={true} />}
+  {product && <ProductCard products={product} flex={true} renderDesc={true} renderAdd={true} />}
 </LayOut>
 
 
