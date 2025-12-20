@@ -29,13 +29,13 @@ export const categoryInfos = [
   },
   {
     title: "Discover fashion trends",
-    name: "women's clothing", // ✅ FIXED
+    name: "women's clothing", // 
     imgLink:
       "https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2023/March/mp_20230219_ff_desktopsinglecategory_desktop_379x304_1._SY304_CB612639047_.jpg",
   },
   {
     title: "Men's clothing",
-    name: "men's clothing", // ✅ FIXED
+    name: "men's clothing", // 
     imgLink:
       "https://m.media-amazon.com/images/I/51mjoK7ajoL._AC_SY500_.jpg",
   },

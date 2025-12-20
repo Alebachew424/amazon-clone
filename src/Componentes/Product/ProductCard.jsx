@@ -170,7 +170,7 @@ function ProductCard({ products, flex, renderDesc,renderAdd }) {
   if (!products) return null;
 
   const { id, title, image, price, rating, description } = products;
-  const [state, dispatch] = useContext(DataContext); // ✅ fixed
+  const [state, dispatch] = useContext(DataContext); //fixed
 
   const addToCart = () => {
     dispatch({

@@ -77,7 +77,7 @@ import { Link } from "react-router-dom";
 function CategoryCard({ data }) {
   return (
     <div className={classes.catagoary}>
-      <Link to={`/category/${encodeURIComponent(data.name)}`}>  {/* ✅ Correct encoding */}
+      <Link to={`/category/${encodeURIComponent(data.name)}`}>  {/*  Correct encoding */}
         <h2>{data.title}</h2>
         <img src={data.imgLink} alt={data.title} />
       </Link>

@@ -267,6 +267,67 @@
 
 
 
+// import React, { useContext } from "react";
+// import classes from "./Header.module.css";
+// import { SlLocationPin } from "react-icons/sl";
+// import { BsSearch } from "react-icons/bs";
+// import { BiCart } from "react-icons/bi";
+// import LowerHeader from "./LowerHeader";
+// import { Link } from "react-router-dom";
+// import { DataContext } from "../DataProvider/DataProvider";
+
+
+// const Header = () => {
+//   const [{ basket }] = useContext(DataContext); // ✅ fixed
+//   const totalItem=basket?.reduce((amount,item)=>{
+//     return item.amount + amount
+//   },0)
+
+//   return (
+//         <section className={classes.fixed}>  
+//       <section className={classes.header_container}>
+//         <div className={classes.logo_container}>
+//           <Link to="/">
+//             <img
+//               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+//               alt="amazon logo"
+//             />
+//           </Link>
+//         </div>
+
+//         <div className={classes.delivery}>
+//           <span><SlLocationPin /></span>
+//           <div>
+//             <p>Deliver to</p>
+//             <span>Ethiopia</span>
+//           </div>
+//         </div>
+
+//         <div className={classes.search}>
+//           <select>
+//             <option value="">All</option>
+//           </select>
+//           <input type="text" placeholder="Search products" />
+//           <BsSearch size={25} />
+//         </div>
+
+//         <div className={classes.order_container}>
+//           <Link to="/cart" className={classes.cart}>
+//             <BiCart size={35} />
+//             <span>{totalItem}</span>
+//           </Link>
+//         </div>
+//      </section>
+
+
+//       <LowerHeader />
+//     </section>
+//   );
+// };
+
+// export default Header;
+
+
 import React, { useContext } from "react";
 import classes from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
@@ -276,16 +337,18 @@ import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 
-
 const Header = () => {
-  const [{ basket }] = useContext(DataContext); // ✅ fixed
-  const totalItem=basket?.reduce((amount,item)=>{
-    return item.amount + amount
-  },0)
+  const [{ basket }] = useContext(DataContext);
+
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
 
   return (
-        <section className={classes.fixed}>  
+    <section className={classes.fixed}>
       <section className={classes.header_container}>
+
+        {/* LOGO */}
         <div className={classes.logo_container}>
           <Link to="/">
             <img
@@ -295,6 +358,7 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* DELIVERY */}
         <div className={classes.delivery}>
           <span><SlLocationPin /></span>
           <div>
@@ -303,6 +367,7 @@ const Header = () => {
           </div>
         </div>
 
+        {/* SEARCH */}
         <div className={classes.search}>
           <select>
             <option value="">All</option>
@@ -311,15 +376,41 @@ const Header = () => {
           <BsSearch size={25} />
         </div>
 
+        {/* RIGHT SECTION */}
         <div className={classes.order_container}>
+
+          {/* LANGUAGE */}
+          <div className={classes.language}>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+              alt="US flag"
+            />
+            <select>
+              <option value="EN">EN</option>
+            </select>
+          </div>
+
+          {/* SIGN IN */}
+          <Link to="/signup" className={classes.link_box}>
+            <p>Hello, Sign in</p>
+            <span>Account & Lists</span>
+          </Link>
+
+          {/* ORDERS */}
+          <Link to="/orders" className={classes.link_box}>
+            <p>Returns</p>
+            <span>& Orders</span>
+          </Link>
+
+          {/* CART */}
           <Link to="/cart" className={classes.cart}>
             <BiCart size={35} />
             <span>{totalItem}</span>
           </Link>
         </div>
-     </section>
+      </section>
 
-
+      {/* LOWER HEADER */}
       <LowerHeader />
     </section>
   );
