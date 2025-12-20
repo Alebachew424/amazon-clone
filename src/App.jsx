@@ -43,19 +43,28 @@ import Catagoary from "./Componentes/Catagoary/Catagory";
 import Product from "./Componentes/Product/Product";
 import Routing from "./Router";
 // import Header from "./Components/Header/Header";
+import Auth from './Pages/Auth/Auth';
+
+// const App = () => {
+//   return (
+//     <div className="App">
+//       {/* <Header />
+//       <Carousel />  
+//       <Catagoary />
+//       <Product /> */}
+//       {/* Other pages/components will go here */}
+//       <Routing />
+//     </div>
+//   );
+// };
+
+// export default App;
 
 const App = () => {
   return (
     <div className="App">
-      {/* <Header />
-      <Carousel />  
-      <Catagoary />
-      <Product /> */}
-      {/* Other pages/components will go here */}
       <Routing />
     </div>
   );
 };
-
 export default App;
-

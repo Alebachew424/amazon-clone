@@ -66,33 +66,61 @@
 
 // export default Routing;
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// import Landing from "./Pages/Landing/Landing";
+// import Payement from "./Pages/Payment/Payement";
+// import Orders from "./Pages/Orders/Orders";
+// import Cart from "./Pages/Cart/Cart";
+// import Results from "./Pages/Results/Results";
+// import ProductDetail from "./Pages/ProductDetail/ProductDetail"; // Make sure this is the correct path
+// import Auth from "./Pages/Auth/Auth";
+
+// function Routing() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Landing />} />
+//         <Route path="/auth" element={<Auth />} />
+//         <Route path="/payment" element={<Payement />} />
+//         <Route path="/orders" element={<Orders />} />
+//         <Route path="/cart" element={<Cart />} />
+//         {/* <Route path ="/products/:productId" element={<ProductDetail />} /> */}
+        
+//         {/* Product Details Route */}
+//         <Route path="/products/:productId" element={<ProductDetail />} /> {/* ✅ Product Detail */}
+
+//         {/* Category Results Route */}
+//         <Route path="/category/:categoryname" element={<Results />} /> {/* ✅ Category */}
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default Routing;
+
+
+import { Routes, Route } from "react-router-dom";
 
 import Landing from "./Pages/Landing/Landing";
-import Signup from "./Pages/Auth/Signup";
 import Payement from "./Pages/Payment/Payement";
 import Orders from "./Pages/Orders/Orders";
 import Cart from "./Pages/Cart/Cart";
 import Results from "./Pages/Results/Results";
-import ProductDetail from "./Pages/ProductDetail/ProductDetail"; // Make sure this is the correct path
+import ProductDetail from "./Pages/ProductDetail/ProductDetail";
+import Auth from "./Pages/Auth/Auth";
 
 function Routing() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/payment" element={<Payement />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/cart" element={<Cart />} />
-        
-        {/* Product Details Route */}
-        <Route path="/products/:productId" element={<ProductDetail />} /> {/* ✅ Product Detail */}
-
-        {/* Category Results Route */}
-        <Route path="/category/:categoryname" element={<Results />} /> {/* ✅ Category */}
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/payment" element={<Payement />} />
+      <Route path="/orders" element={<Orders />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/products/:productId" element={<ProductDetail />} />
+      <Route path="/category/:categoryname" element={<Results />} />
+    </Routes>
   );
 }
 
