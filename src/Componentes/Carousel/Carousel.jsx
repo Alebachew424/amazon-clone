@@ -15,7 +15,7 @@ function Carousel() {
       >
         {images.map((imageItemLink, index) => (
           <div key={index}>
-            <img src={imageItemLink} alt="carousel image" />
+            <img key={imageItemLink} src={imageItemLink} alt="carousel image" />
           </div>
         ))}
       </ResponsiveCarousel>

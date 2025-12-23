@@ -36,7 +36,7 @@
 
 
 
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Componentes/Header/Header";
 import Carousel from "./Componentes/Carousel/Carousel";
 import Catagoary from "./Componentes/Catagoary/Catagory";
@@ -44,6 +44,10 @@ import Product from "./Componentes/Product/Product";
 import Routing from "./Router";
 // import Header from "./Components/Header/Header";
 import Auth from './Pages/Auth/Auth';
+
+import {Type} from './Utility/action.type';
+import {auth} from './Utility/firebase'
+import { DataContext } from "./Componentes/DataProvider/DataProvider";
 
 // const App = () => {
 //   return (
@@ -61,6 +65,30 @@ import Auth from './Pages/Auth/Auth';
 // export default App;
 
 const App = () => {
+
+
+const [{user},dispatch]=React.useContext(DataContext)
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      console.log("The user is >>> ", authUser);
+
+      if (authUser) {
+        // the user just logged in / the user was logged in
+        dispatch({
+          type: Type.SET_USER,
+          user: authUser,
+        });
+      } else {
+        // the user is logged out
+        dispatch({
+          type: Type.SET_USER,
+          user: null,
+        });
+      }
+    });
+  }, []); 
+
   return (
     <div className="App">
       <Routing />
