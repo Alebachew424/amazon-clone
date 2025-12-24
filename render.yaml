@@ -1,0 +1,12 @@
+static:
+  name: amazon-clone
+  env: static
+  buildCommand: npm run build
+  publishDir: dist
+  headers:
+    - path: /assets/*
+      name: Content-Type
+      value: text/css
+    - path: /*.js
+      name: Content-Type
+      value: text/javascript
