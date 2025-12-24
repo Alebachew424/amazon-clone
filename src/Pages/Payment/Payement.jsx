@@ -1391,7 +1391,7 @@
 
 import React, { useContext, useState } from "react";
 import classes from "./Payement.module.css";
-import Layout from "../../Componentes/Layout/Layout";
+import Layout from "../../Componentes/LayOut/LayOut";
 import { DataContext } from "../../Componentes/DataProvider/DataProvider";
 import ProductCard from "../../Componentes/Product/ProductCard";
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
