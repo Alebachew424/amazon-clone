@@ -12,11 +12,10 @@ const stripe = require("stripe")(process.env.STRIPE_KEY || "sk_test_dummy_key");
 
 const app = express();
 
-// Production CORS settings
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://amazon-clone.onrender.com'
-];
+// Dynamic CORS for production - reads from environment variable
+const allowedOrigins = process.env.CORS_ORIGIN 
+  ? process.env.CORS_ORIGIN.split(',')
+  : ['http://localhost:5173'];
 
 app.use(cors({
   origin: function (origin, callback) {
