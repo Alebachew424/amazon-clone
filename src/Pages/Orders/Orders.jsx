@@ -64,7 +64,7 @@
 
 
 import React, { useState, useEffect, useContext } from "react";
-import Layout from "../../Componentes/Layout/Layout";
+import Layout from "../../Componentes/LayOut/LayOut";
 import { useLocation } from "react-router-dom";
 import { db } from "../../Utility/firebase"; // Changed from API/firebase to Utility/firebase
 import classes from "./Orders.module.css";
