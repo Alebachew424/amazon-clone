@@ -14,7 +14,7 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "API is running successfully 🚀" });
+  res.status(200).json({ message: "API is running successfully " });
 });
 
 app.post("/payments/create", async (req, res) => {
